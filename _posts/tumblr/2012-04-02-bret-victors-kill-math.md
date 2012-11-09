@@ -1,7 +1,7 @@
 --- 
+title: Bret Victor's Kill Math
 layout: post
 tags: 
-title: Bret Victor's Kill Math
 ---
 [Bret Victors Kill Math](http://worrydream.com/KillMath/)
 

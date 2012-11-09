@@ -1,7 +1,7 @@
 --- 
+title: Steven Frank - Disable Flash in Safari 5 the good way
 layout: post
 tags: 
-title: Steven Frank - Disable Flash in Safari 5 the good way
 ---
 [Steven Frank - Disable Flash in Safari 5 the good
 way](http://stevenf.tumblr.com/post/1376712559)

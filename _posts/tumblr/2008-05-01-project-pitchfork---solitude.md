@@ -1,5 +1,5 @@
 --- 
+title: "Project Pitchfork - Solitude "
 layout: post
 tags: 
-title: "Project Pitchfork - Solitude "
 ---

@@ -1,10 +1,10 @@
 --- 
+title: Brief update on Metta
 layout: post
 tags: 
 - metta
 - typesystem
 - toolchain
-title: Brief update on Metta
 ---
 I've been working on toolchain building script, now at least on Macs it's
 possible to build a standalone toolchain for building Metta and you can

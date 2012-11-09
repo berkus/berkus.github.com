@@ -1,7 +1,7 @@
 --- 
+title: assocfs note
 layout: post
 tags: 
-title: assocfs note
 ---
 [assocfs note](http://forum.osdev.org/viewtopic.php?f=15&t=24417#p199467)
 

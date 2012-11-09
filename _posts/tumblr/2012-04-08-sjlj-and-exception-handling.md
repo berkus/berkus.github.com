@@ -1,4 +1,5 @@
 --- 
+title: sjlj and exception handling
 layout: post
 tags: 
 - metta
@@ -6,7 +7,6 @@ tags:
 - llvm
 - longjmp
 - exceptions
-title: sjlj and exception handling
 ---
 Of course, the clang's implementation of setjmp is very generic and uses quite
 an abstraction of program state, which makes it hardly suitable for the ad-hoc

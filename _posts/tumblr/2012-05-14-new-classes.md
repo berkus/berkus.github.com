@@ -1,7 +1,7 @@
 --- 
+title: New classes
 layout: post
 tags: 
-title: New classes
 ---
 I took three more classes (actually, I took a lot more this time, but they all
 fell off, still hope to at least watch the videos).

@@ -1,7 +1,7 @@
 --- 
+title: "Dave Newman: Leaving .net"
 layout: post
 tags: 
-title: "Dave Newman: Leaving .net"
 ---
 [Dave Newman: Leaving .net](http://whatupdave.tumblr.com/post/1170718843
 /leaving-net)

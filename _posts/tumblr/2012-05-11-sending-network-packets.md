@@ -1,7 +1,7 @@
 --- 
+title: Sending network packets
 layout: post
 tags: 
-title: Sending network packets
 ---
 A little sidetrack into the world of PCI probing and NE2000 network card
 emulation.

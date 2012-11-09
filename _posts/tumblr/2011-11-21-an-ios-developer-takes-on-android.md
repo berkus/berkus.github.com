@@ -1,7 +1,7 @@
 --- 
+title: An iOS Developer Takes on Android
 layout: post
 tags: 
-title: An iOS Developer Takes on Android
 ---
 [nfarina](http://nfarina.com/post/8239634061/ios-to-android):
 

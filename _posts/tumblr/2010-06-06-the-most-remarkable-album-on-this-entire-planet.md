@@ -1,10 +1,10 @@
 --- 
+title: The Most Remarkable Album On This Entire Planet
 layout: post
 tags: 
 - music
 - paniq
 - the-album
-title: The Most Remarkable Album On This Entire Planet
 ---
 I've just "invested" my hard earned €20 into something I believe is very
 remarkable. [The Album](http://the-album.cc). Leonard, known as "paniq" to

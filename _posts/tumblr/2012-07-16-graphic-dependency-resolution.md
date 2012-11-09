@@ -1,11 +1,11 @@
 --- 
+title: Graphic dependency resolution
 layout: post
 tags: 
 - metta
 - tools
 - diy
 - bugs-everywhere
-title: Graphic dependency resolution
 ---
 I needed to quickly check how much of Nemesis support has to be ported over
 before I can start launching some basic domains.
