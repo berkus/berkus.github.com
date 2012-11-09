@@ -17,20 +17,20 @@ Bits and pieces are appearing in different systems from different vendors, but t
 
 This is a huge undertaking and given that neither Apple nor Microsoft is near achieving it yet, chances are  I won't make it alone either. But I have to try anyway.
 
-One side - the low-level platform, which supports secure, distributed, federated, peer-to-peer systems - is being developed at https://github.com/berkus/metta. It supports an entirely different programming paradigm of component-based composable system, where interfaces between components make it possible to remote parts of the system without ever changing the application itself; and introspection facilities allow to build mashable applications out of existing components without ever needing anything else. A fast, portable, peer-to-peer foundation platform.
+One side - the low-level platform, which supports secure, distributed, federated, peer-to-peer systems - is being developed at [https://github.com/berkus/metta](https://github.com/berkus/metta). It supports an entirely different programming paradigm of component-based composable system, where interfaces between components make it possible to remote parts of the system without ever changing the application itself; and introspection facilities allow to build mashable applications out of existing components without ever needing anything else. A fast, portable, peer-to-peer foundation platform.
 
-Another side - the user-space interaction and social facilities - developed at https://github.com/berkus/metta-grabber. The grabber part in the name comes from "Omnia mea mecum porto" - grab, snapshot things I need and forever keep them available to me. This is one of the current research topics in the humane part. How much data do I need? Where do I need it? How my life changes if I always can find what I need, wherever I am? This project is no less ambitious, but better progress is being made here, since it is a simple application ran on regular off-the-shelf operating systems.
+Another side - the user-space interaction and social facilities - developed at [https://github.com/berkus/metta-grabber](https://github.com/berkus/metta-grabber). The grabber part in the name comes from "Omnia mea mecum porto" - grab, snapshot things I need and forever keep them available to me. This is one of the current research topics in the humane part. How much data do I need? Where do I need it? How my life changes if I always can find what I need, wherever I am? This project is no less ambitious, but better progress is being made here, since it is a simple application ran on regular off-the-shelf operating systems.
 
 ### Support or contact
 
-Ping @berkus if you have any questions or ideas.
+Ping [@berkus](https://github.com/berkus) if you have any questions or ideas.
 
 Be free!
 
 
 <div class="link">
   <ul class="recent">
-  {% for post in site.posts limit: 7 %}
+  {% for post in site.posts limit: 10 %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
   </ul>
