@@ -1,7 +1,7 @@
 --- 
-title: "Jeff Rock: Down the Memory Hole"
-tags: 
 layout: post
+tags: 
+title: "Jeff Rock: Down the Memory Hole"
 ---
 [Jeff Rock: Down the Memory Hole](http://jeffrock.com/post/1366710567)
 

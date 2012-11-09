@@ -1,7 +1,7 @@
 --- 
-title: "Flood Lite: Apple's Attention to Detail"
-tags: 
 layout: post
+tags: 
+title: "Flood Lite: Apple's Attention to Detail"
 ---
 [Flood Lite: Apples Attention to
 Detail](http://floodlite.tumblr.com/post/1011047822/apples-attention-to-

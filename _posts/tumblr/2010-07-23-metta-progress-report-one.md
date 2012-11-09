@@ -1,8 +1,8 @@
 --- 
-title: Metta progress report one
+layout: post
 tags: 
 - metta
-layout: post
+title: Metta progress report one
 ---
 I have cleaned up the booting mess more or less and now my loader is able to
 enter the **root domain** - the startup component, which initialises all other

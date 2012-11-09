@@ -1,11 +1,11 @@
 --- 
-title: Clanged now
+layout: post
 tags: 
 - metta
 - cross-compiling
 - Clang
 - llvm
-layout: post
+title: Clanged now
 ---
 Anyway, I've done doing the craziest port of recent times - at the same time
 GCC to Clang _and_ from waf 1.5 to 1.6.

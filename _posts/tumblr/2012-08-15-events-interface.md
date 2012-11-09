@@ -1,5 +1,5 @@
 --- 
-title: Events interface
+layout: post
 tags: 
 - metta
 - ANSA
@@ -8,7 +8,7 @@ tags:
 - synchronization
 - fawn
 - nemesis
-layout: post
+title: Events interface
 ---
 I've ported events, sequencers and event-based communication primitives from
 Nemesis. It's a little bit messy at the moment (mostly because of mixing C and

@@ -1,10 +1,10 @@
 --- 
-title: Type systems and introspection
+layout: post
 tags: 
 - metta
 - bootstrap
 - coding
-layout: post
+title: Type systems and introspection
 ---
 Since I've decided to approach the system development from both low-level and
 high-level perspectives, one of the applications I have in mind for demo

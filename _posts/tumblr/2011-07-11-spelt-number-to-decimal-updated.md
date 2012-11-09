@@ -1,7 +1,7 @@
 --- 
-title: Spelt Number to Decimal (Updated)
-tags: 
 layout: post
+tags: 
+title: Spelt Number to Decimal (Updated)
 ---
 [arachneng](http://j.mearie.org/post/7462182919/spelt-number-to-decimal):
 

@@ -1,8 +1,8 @@
 --- 
-title: Education opportunities
+layout: post
 tags: 
 - education
-layout: post
+title: Education opportunities
 ---
 One chat started talking about various online education opportunities. Here's
 a short summary of the available options, for reference.

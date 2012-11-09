@@ -1,12 +1,12 @@
 --- 
-title: Clangestine
+layout: post
 tags: 
 - cross-compiling
 - gcc
 - llvm
 - metta
 - Clang
-layout: post
+title: Clangestine
 ---
 Finally, Clang people have enabled C++11 lambda support in clang and I'm busy
 hurrying my buildsystem into clang support for everything. I'm tired of

@@ -1,4 +1,5 @@
 pygments: true
 future: false
-permalink: /blog/:year/:month/:date/:title
+permalink: /post/:year/:month/:day/:title
+markdown: rdiscount
 

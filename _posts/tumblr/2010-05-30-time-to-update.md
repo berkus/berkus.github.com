@@ -1,8 +1,8 @@
 --- 
-title: Time to update
+layout: post
 tags: 
 - life
-layout: post
+title: Time to update
 ---
 I did a little cleanup on my sites, so my private blog moves over to tumblr,
 which is excellent in all imaginable ways. Also means less load on my poor co-
