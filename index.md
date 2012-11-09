@@ -26,3 +26,12 @@ Another side - the user-space interaction and social facilities - developed at h
 Ping @berkus if you have any questions or ideas.
 
 Be free!
+
+
+<div class="link">
+  <ul class="recent">
+  {% for post in site.posts limit: 7 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
