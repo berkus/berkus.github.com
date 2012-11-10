@@ -1,6 +1,6 @@
 --- 
 title: Font rasterization theory and techniques
-layout: post
+layout: link
 tags: 
 ---
 [Font rasterization theory and techniques](https://freddie.witherden.org/pages

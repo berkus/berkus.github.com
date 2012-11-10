@@ -1,6 +1,6 @@
 --- 
 title: assocfs note
-layout: post
+layout: link
 tags: 
 ---
 [assocfs note](http://forum.osdev.org/viewtopic.php?f=15&t=24417#p199467)

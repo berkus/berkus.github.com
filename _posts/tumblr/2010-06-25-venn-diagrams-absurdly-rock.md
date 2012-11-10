@@ -1,6 +1,6 @@
 --- 
 title: Venn diagrams absurdly rock.
-layout: post
+layout: photo
 tags: 
 ---
 [![](/tumblr_files/tumblr_l4keabmNdl1qz4sszo1_400.gif)](http://nextround.net/2

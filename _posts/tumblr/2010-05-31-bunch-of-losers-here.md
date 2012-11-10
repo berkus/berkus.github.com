@@ -1,7 +1,6 @@
 --- 
 title: Bunch of losers, here.
-layout: post
+layout: photo
 tags: 
 ---
-[![](/tumblr_files/tumblr_l3a49uKwxW1qz4ssz.jpg)](http://bigpicture.ru/?p=5813
-2)
+[![](/tumblr_files/tumblr_l3a49uKwxW1qz4ssz.jpg)](http://bigpicture.ru/?p=58132)

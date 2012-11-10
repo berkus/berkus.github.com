@@ -1,6 +1,6 @@
 --- 
 title: "Flood Lite: Apple's Attention to Detail"
-layout: post
+layout: link
 tags: 
 ---
 [Flood Lite: Apples Attention to

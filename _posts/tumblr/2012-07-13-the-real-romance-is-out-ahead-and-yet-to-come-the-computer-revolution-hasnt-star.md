@@ -1,6 +1,6 @@
 --- 
-title: "The real romance is out ahead and yet to come. The computer revolution hasn\xE2\x80\x99t started yet. Don\xE2\x80\x99t be misled by the enormous flow of money into bad defacto standards for unsophisticated buyers using poor adaptations of incomplete ideas."
-layout: post
+title: "The real romance is out ahead and yet to come."
+layout: quote
 tags: 
 ---
 > The real romance is out ahead and yet to come. The computer revolution

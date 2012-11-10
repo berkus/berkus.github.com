@@ -1,6 +1,6 @@
 --- 
 title: Museum of Endangered Sounds
-layout: post
+layout: link
 tags: 
 ---
 [Museum of Endangered Sounds](http://savethesounds.info/)

@@ -1,6 +1,6 @@
 --- 
 title: Bret Victor's Kill Math
-layout: post
+layout: link
 tags: 
 ---
 [Bret Victors Kill Math](http://worrydream.com/KillMath/)

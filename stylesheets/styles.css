@@ -32,7 +32,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(0, 0, 0, 0.45) 0 3px 10px;
 }
 
-header, section, footer {
+header, section, footer, article {
   display: block;
 }
 
@@ -301,6 +301,41 @@ footer p {
 footer p + p {
   float: right;
 }
+
+/* From tumblr *//* Copy text */
+.post-quote p
+{
+  font-family:Georgia, serif;
+}
+.post-quote p:first-child strong:first-child
+{
+  font-family:Helvetica Neue, Arial, sans-serif;
+}
+
+/* From tumblr *//* Main color */
+/*.colored-panel, .type-photoset .navi a:hover,*/
+.post-quote blockquote
+{
+  background-color:#f55b2c;
+}
+
+.post-quote blockquote p
+{
+  color: #ffffff;
+}
+
+/* From tumblr *//* Colored Area */
+.colored-panel, .colored-panel a, .colored-panel a:hover
+{
+  color:#fffadc;
+}
+
+/* From tumblr *//* Colored Area Text Shadow */    
+.post-quote blockquote,.post-audio .audio-meta,.pages a:hover
+{
+  text-shadow:1px 1px #bf4402;
+}
+
 
 @media print, screen and (max-width: 740px) {
   body {
