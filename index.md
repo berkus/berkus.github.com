@@ -36,3 +36,5 @@ Be free!
   {% endfor %}
   </ul>
 </div>
+
+[All posts](allposts.html)
