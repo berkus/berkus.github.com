@@ -27,11 +27,12 @@ Ping [@berkus](https://github.com/berkus) if you have any questions or ideas.
 
 Be free!
 
+### List of posts by date
 
 <div class="link">
   <ul class="recent">
   {% for post in site.posts limit: 10 %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    <li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
   </ul>
 </div>
