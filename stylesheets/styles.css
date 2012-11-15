@@ -306,6 +306,7 @@ footer p + p {
 .post-quote p
 {
   font-family:Georgia, serif;
+  text-align: right;
 }
 .post-quote p:first-child strong:first-child
 {
