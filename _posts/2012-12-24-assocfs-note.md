@@ -15,12 +15,12 @@ This is something that I'm doing with my assocfs.
 It's a non-hierarchical filesystem - in other words, associative filesystem. It's basically a huge graph database. Every object is addressed by its hash (content addressable, like git), knowing the hash you can find it on disk. For more conventional searches (for those who does not know or does not care about the hash) there is metadata - attributes, drawn from an ontology and associated with a particular hashed blob.
 
 This gives a few interesting properties:
-* Same blobs will end up in the same space, giving you a for-free deduplication.
-* Implementing versioning support is a breeze - changing the blob changes the hash, so it will end up in some other location.
-* Some other things you may easily imagine.
+ * Same blobs will end up in the same space, giving you a for-free deduplication.
+ * Implementing versioning support is a breeze - changing the blob changes the hash, so it will end up in some other location.
+ * Some other things you may easily imagine.
 
 It also has some problems:
-* No root directory, but a huge attribute list instead. This requires some efficient search and filtering algorithms as well as on-disk and in-memory compression of these indexes. Imagine 1,000,000 "files" each with about 50 attributes. Millions and millions of attributes which you have to search through.
+ * No root directory, but a huge attribute list instead. This requires some efficient search and filtering algorithms as well as on-disk and in-memory compression of these indexes. Imagine 1,000,000 "files" each with about 50 attributes. Millions and millions of attributes which you have to search through.
 Luckily, databases is a very well established field and building an efficient storage and retrieval on this basis is possible.
 
 As a user you basically perform searches on attribute sets using something like humane representation of relational algebra. Blobs can have more conventional names, specified with extra attributes, for example: UNIX_PATH=/bin/bash UNIX_PATH=/usr/bin/bash allows single piece of code to be addressed by UNIX programs as both /bin/bash and /usr/bin/bash, without needing any symlinks.
