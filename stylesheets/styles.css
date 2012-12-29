@@ -307,6 +307,13 @@ footer p + p {
   float: right;
 }
 
+/* Disqus post comments count */
+.dsq_count
+{
+  font-size: 7px;
+  color: #eeeeee;
+}
+
 /* From tumblr *//* Copy text */
 .post-quote p
 {
