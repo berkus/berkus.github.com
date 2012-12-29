@@ -14,8 +14,8 @@ mmu_mod will allocate and map the first chunk of memory to use. It does so witho
 We need frames_mod to tell us, how much it needs to manage the physical memory, for the heap we just assume some size that we would need dynamically during rest of startup.
 
 {% highlight c %}
-    int required = frames_mod->required_size();
-    int initial_heap_size = 128*KiB;
+int required = frames_mod->required_size();
+int initial_heap_size = 128*KiB;
 {% endhighlight %}
 
 How frames module figures out its required space we will understand in a moment, when we see the structures it uses for bookkeeping.
@@ -104,11 +104,11 @@ Thatʼs about all it does at the moment, so I wonʼt focus on it.
 After all the above the heap looks fairly simplistic. Thereʼs a header record with pointers to about 40 free lists - for blocks of different sizes. These free lists provide means to quickly allocate blocks of approximately requested size (or “best fit”).
 
 {% highlight c %}
-    static const int SMALL_BLOCKS = 16;
-    static const int LARGE_BLOCKS = 24;
-    static const int COUNT = (SMALL_BLOCKS + LARGE_BLOCKS + 1);
-    static const memory_v1_size all_sizes[COUNT];
-    heap_rec_t* blocks[COUNT];
+static const int SMALL_BLOCKS = 16;
+static const int LARGE_BLOCKS = 24;
+static const int COUNT = (SMALL_BLOCKS + LARGE_BLOCKS + 1);
+static const memory_v1_size all_sizes[COUNT];
+heap_rec_t* blocks[COUNT];
 {% endhighlight %}
 
 The structure is two-dimensional: free lists connect memory blocks through “next” pointers, while allocated blocks are connected by their physical adjacency.
