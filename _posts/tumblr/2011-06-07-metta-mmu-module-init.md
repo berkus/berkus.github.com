@@ -4,6 +4,7 @@ layout: post
 tags: 
 - metta
 - startup
+- memory
 ---
 ### MMU initialisation
 
