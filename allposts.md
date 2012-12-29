@@ -6,7 +6,7 @@ layout: default
 <div class="link">
   <ul class="recent">
   {% for post in site.posts %}
-    <li>{{ post.date | date_to_string }} <a href="{{ post.url }}">➯ {{ post.title }}</a></li>
+    <li>{{ post.date | date_to_string }} <a href="{{ post.url }}#disqus_thread">➯ {{ post.title }}</a></li>
   {% endfor %}
   </ul>
 </div>
