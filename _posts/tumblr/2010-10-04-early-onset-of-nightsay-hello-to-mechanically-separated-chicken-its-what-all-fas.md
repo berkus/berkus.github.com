@@ -19,4 +19,4 @@ early-onset-of-night:
 
 > High five, America!
 
-> *smack*
+> \*smack\*
