@@ -1,7 +1,6 @@
 --- 
 title: Codex Seraphinianus
 layout: link
-tags: 
 ---
 [Codex Seraphinianus](http://issuu.com/dylan_k/docs/luigi.serafini.-.codex.ser
 aphinianus)

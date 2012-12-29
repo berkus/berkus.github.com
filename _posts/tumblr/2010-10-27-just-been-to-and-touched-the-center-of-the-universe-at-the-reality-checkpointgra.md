@@ -1,7 +1,9 @@
 --- 
 title: center of the universe
 layout: photo
-tags: 
+tags:
+- uk
+- british humor
 ---
 ![](/tumblr_files/tumblr_lay8i8aSwp1qz4ssz.jpg)
 

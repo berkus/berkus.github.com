@@ -1,7 +1,9 @@
 --- 
 title: Sending network packets
 layout: post
-tags: 
+tags:
+- osdev
+- network
 ---
 A little sidetrack into the world of PCI probing and NE2000 network card emulation.
 

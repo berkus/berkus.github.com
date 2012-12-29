@@ -1,6 +1,6 @@
 ---
-layout: quote
 title: On patents
+layout: quote
 tags:
 - warcraft
 - software patents

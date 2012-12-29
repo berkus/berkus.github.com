@@ -1,7 +1,10 @@
 --- 
 title: A historical moment
 layout: post
-tags: 
+tags:
+- osdev
+- arm
+- startup
 ---
 {% highlight console %}
 OMAP3 beagleboard.org # mmcinit
