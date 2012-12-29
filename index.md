@@ -33,7 +33,7 @@ Be free!
 <div class="link">
   <ul class="recent">
   {% for post in site.posts limit: 10 %}
-    <li>{{ post.date | date_to_string }} <a href="{{ post.url }}">➯ {{ post.title }}</a> <a class="dsq_count" href="{{ post.url }}/index.html#disqus_thread"></a></li>
+    <li>{{ post.date | date_to_string }} <a href="{{ post.url }}">➯ {{ post.title }}</a> <a class="dsq_count" href="{{ post.url }}/#disqus_thread"></a></li>
   {% endfor %}
   </ul>
 </div>
