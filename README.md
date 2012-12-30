@@ -1,2 +1,2 @@
-Teh blog. Read at [blog.exquance.com](http://blog.exquance.com).
+Teh blog. Read at [exocortex.madfire.net](http://exocortex.madfire.net).
 
