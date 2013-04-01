@@ -14,3 +14,5 @@ What did this neanderthal think?
     inline QWeakPointer(X *ptr) : d(ptr ? d->getAndRef(ptr) : 0), value(ptr)
                                           ^
 {% endhighlight %}
+
+Apparently, getAndRef() is static; but Qt is full of such questionable style "cowboy" programming.
