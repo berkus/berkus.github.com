@@ -41,8 +41,8 @@ $ make && make install
 Apply some patches that I had to do to make things build nicely.
 
 They are here:
-[libc++ patch](http://llvm.org/bugs/show_bug.cgi?id=16123)
-[compiler-rt OSX patch](http://llvm.org/bugs/show_bug.cgi?id=16124)
+[libc++ patch](http://llvm.org/bugs/show_bug.cgi?id=16123) |
+[compiler-rt OSX patch](http://llvm.org/bugs/show_bug.cgi?id=16124) |
 [lldb patch](http://llvm.org/bugs/show_bug.cgi?id=16125)
 
 Now create a build configuration:
