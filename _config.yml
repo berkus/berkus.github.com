@@ -1,5 +1,5 @@
 pygments: true
-future: false
+future: true
 permalink: /post/:year/:month/:day/:title
 markdown: rdiscount
 
