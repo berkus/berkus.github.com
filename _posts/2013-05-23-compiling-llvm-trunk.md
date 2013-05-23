@@ -5,6 +5,8 @@ tags:
 - compilers
 - clang
 - trunk
+- llvm
+- howto
 ---
 Just a very simple thing to try and build Clang with polly, LLVM, libcxx, lldb and lld from trunk. Isn't it?
 
