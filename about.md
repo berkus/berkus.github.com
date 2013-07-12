@@ -10,4 +10,4 @@ As big could ever dream to be
 Then dream a dream ten times as big  
 As that one dream you see.
 
-![](http://motoko.madfire.net/kusanagi.jpg)
+![](http://pic.madfire.net/kusanagi.jpg)
