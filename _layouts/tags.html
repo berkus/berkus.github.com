@@ -28,7 +28,14 @@
           depth: 0.8,
           maxSpeed: 0.05,
           weight: true,
-          weightMode: 'both'
+          weightMode: 'both',
+          weightGradient: {
+            0: 'black',
+         0.33: 'blue',
+          0.5: 'fuchsia',
+         0.75: 'orange',
+            1: 'red'
+          }
         }, 'tags')) {
           // something went wrong, hide the canvas container
           $('#myCanvasContainer').hide();
