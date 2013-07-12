@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Exocortex by berkus</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+    <script src="/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Exocortex</a></h1>
+        <p><a href="/about.html">scribbling for singularity</a></p>
+      </header>
+      <section>
+       <p>There's a slight fault with metta-grabber not quite punching through home routers' NAT. While the UDP punching technique described by Bryan Ford should generally work, it doesn't account for the port change hence the announced endpoint addresses as seen by the regserver are invalid. Responses don't go back because the reply port number is different from what router's NAT assigns.</p>
+
+<p>I tried using UPnP to open some more ports, but it doesn't change the fact that advertised endpoints are still invalid. Now the upcoming change is to record external IP and port of the instance as reported by the router's UPnP protocol into yet another endpoint and forward that to the regserver. Another nice addition would be to enable Bonjour discovery of the nodes on the local network, which hopefully would already be connected to the regserver and can forward our endpoint information.</p>
+
+<p>As usual, on the New Years Eve there's a lot of different projects coming up simultaneously and grinding any progress to a halt. Watch the commits on github.</p>
+
+
+<a href="/">Back to start</a>
+
+      </section>
+      <div class="wrap_disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'exocortex';
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+    
+    <footer>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>.</p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-36158006-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+    <script type="text/javascript">
+      var disqus_shortname = 'exocortex';
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+  </body>
+</html>
