@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Exocortex by berkus</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+    <script src="/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Exocortex</a></h1>
+        <p><a href="/about.html">scribbling for singularity</a></p>
+      </header>
+      <section>
+       <p>Just a very simple thing to try and build Clang with polly, LLVM, libcxx, lldb and lld from trunk. Isn't it?</p>
+
+<p>Using git, because cloning a git repo with full history is still faster than checking out svn repo with serf. Yay!</p>
+
+<p>These instructions are not for copy-paste, they show general idea and should work with minor changes.</p>
+
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> mkdir workspace <span class="o">&amp;&amp;</span> <span class="nb">cd </span>workspace
+<span class="gp">$</span> git clone http://llvm.org/git/llvm.git
+<span class="gp">$</span> <span class="nb">cd </span>llvm/tools
+<span class="gp">$</span> git clone http://llvm.org/git/clang.git
+<span class="gp">$</span> <span class="nb">cd </span>clang/tools
+<span class="gp">$</span> git clone http://llvm.org/git/clang-tools-extra.git
+<span class="gp">$</span> <span class="nb">cd</span> ../.. <span class="c"># back in llvm/tools</span>
+<span class="gp">$</span> git clone http://llvm.org/git/polly.git
+<span class="gp">$</span> git clone http://llvm.org/git/lld.git
+<span class="gp">$</span> git clone http://llvm.org/git/lldb.git
+<span class="gp">$</span> <span class="nb">cd</span> ../.. <span class="c"># back in workspace</span>
+<span class="gp">$</span> git clone http://llvm.org/git/libcxx.git
+</code></pre></div>
+
+
+<p>Install cloog for polly. This is as per polly's installation instructions.</p>
+
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> ./llvm/tools/polly/utils/checkout_cloog.sh workspace/cloog-src
+<span class="gp">$</span> <span class="nb">cd </span>workspace/cloog-src
+<span class="gp">$</span> ./configure --prefix<span class="o">=</span>/Users/berkus/Tools/cloog
+<span class="gp">$</span> make <span class="o">&amp;&amp;</span> make install
+</code></pre></div>
+
+
+<p>Apply some patches that I had to do to make things build nicely.</p>
+
+<p>They are here:
+<a href="http://llvm.org/bugs/show_bug.cgi?id=16123">libc++ patch</a> |
+<a href="http://llvm.org/bugs/show_bug.cgi?id=16124">compiler-rt OSX patch</a> |
+<a href="http://llvm.org/bugs/show_bug.cgi?id=16125">lldb patch</a></p>
+
+<p>Now create a build configuration:</p>
+
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> mkdir workspace/llvm/_build_
+<span class="gp">$</span> <span class="nb">cd </span>llvm/_build_
+<span class="gp">$</span> cmake -G Ninja -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/Users/berkus/Tools/clang-git -DCMAKE_PREFIX_PATH<span class="o">=</span>/Users/berkus/Tools/cloog/ -DCMAKE_CXX_FLAGS<span class="o">=</span><span class="s2">&quot;-std=c++11 -stdlib=libc++&quot;</span> ..
+</code></pre></div>
+
+
+<p>Then build everything. This shall build around three thousand files, excluding libc++ which is built separately.</p>
+
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> ninja
+</code></pre></div>
+
+
+<p>Grab a coffee and watch ninjas in action for a while.</p>
+
+<p>Now build libc++. I opted to install it to a separate directory ... TODO: figure out default clang search paths for libc++ and install there..</p>
+
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> <span class="nb">cd </span>workspace/libcxx/_build_
+<span class="gp">$</span> cmake -G Ninja -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local/opt/libcxx ..
+<span class="gp">$</span> ninja install
+</code></pre></div>
+
+
+<p>This will still need some DYLD_LIBRARY_PATH tweaking (for lldb), but in general clang should work. It will not work with OSX default libc++; that's why you need to build a fresher one.</p>
+
+
+<a href="/">Back to start</a>
+
+      </section>
+      <div class="wrap_disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'exocortex';
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+    
+    <footer>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>.</p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-36158006-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+    <script type="text/javascript">
+      var disqus_shortname = 'exocortex';
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+  </body>
+</html>
