@@ -23,10 +23,11 @@
         if(!$('#myCanvas').tagcanvas({
           textColour: '#000000',
           outlineColour: '#ff00ff',
+          fadeIn: 500,
           reverse: true,
           depth: 0.8,
           maxSpeed: 0.05
-        },'tagsList')) {
+        })) {
           alert("Failed to start tagcanvas");
           // something went wrong, hide the canvas container
           $('#myCanvasContainer').hide();
