@@ -42,7 +42,7 @@ Making it serialize a bunch of simple fields and then load them back seemed extr
 but itself doesn't support all of the features outlined there.</p>
 
 <p>I decided to make a simple and very dumb serializer to msgpackv5 format from the ground up.
-The default implementation supports several types from ints and strings to boost::optional<T> and
+The default implementation supports several types from ints and strings to <code>boost::optional&lt;T&gt;</code> and
 some STL containers.</p>
 
 <p>If your type consists of a series of supported types, it's easy to serialize it as well, just define
@@ -68,7 +68,7 @@ two shift operators similar to how iostreams work.</p>
 * requires public access to value members, although you can always declare the operators as friends.</p>
 
 <p>It also has some nice properties:
-* having defined the above, container types like std::vector<my_type> are automagically supported.</p>
+* having defined the above, container types like <code>std::vector&lt;my_type&gt;</code> are automagically supported.</p>
 
 <p>Of course this is still work in progress and I expect it to slightly change, maybe move away from
 msgpackv5 specification a bit - it seems to have some illogical cases.</p>
