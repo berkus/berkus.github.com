@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Exocortex by berkus</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+    <script src="/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Exocortex</a></h1>
+        <p><a href="/about.html">scribbling for singularity</a></p>
+      </header>
+      <section>
+       <p>To continue work on the structured streams transport I decided to get rid of the XDR data
+representation, as well as slightly awkward boost.serialization library.</p>
+
+<p>Boost.serialization is very nice and robust, but it has some quirks, like not being able to
+save things by value.</p>
+
+<div class="highlight"><pre><code class="c++"><span class="n">ar</span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="nb">false</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hell yeah&quot;</span><span class="p">;</span> <span class="c1">// Cannot do this</span>
+</code></pre></div>
+
+
+<p>I encountered a very nice library called <a href="https://github.com/berkus/msgpack">msgpack</a>. It provided
+quite efficient packing of small integers and looked reasonably simple.
+But the C++ wrappers it provided around the C core were extremely horrendous - their main purpose
+seems to be for RPC mechanisms where you define and transfer tuples of given types.
+Making it serialize a bunch of simple fields and then load them back seemed extra hard.</p>
+
+<p>The library seems to be in transition to <a href="https://gist.github.com/frsyuki/5432559">msgpackv5</a>
+but itself doesn't support all of the features outlined there.</p>
+
+<p>I decided to make a simple and very dumb serializer to msgpackv5 format from the ground up.
+The default implementation supports several types from ints and strings to boost::optional<T> and
+some STL containers.</p>
+
+<p>If your type consists of a series of supported types, it's easy to serialize it as well, just define
+two shift operators similar to how iostreams work.</p>
+
+<div class="highlight"><pre><code class="c++"><span class="kr">inline</span> <span class="n">flurry</span><span class="o">::</span><span class="n">iarchive</span><span class="o">&amp;</span>
+<span class="k">operator</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="n">flurry</span><span class="o">::</span><span class="n">iarchive</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="n">my_type</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">in</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">.</span><span class="n">member1</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">.</span><span class="n">member2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">in</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span> <span class="n">flurry</span><span class="o">::</span><span class="n">oarchive</span><span class="o">&amp;</span>
+<span class="k">operator</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">flurry</span><span class="o">::</span><span class="n">oarchive</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="n">my_type</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="p">.</span><span class="n">member1</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="p">.</span><span class="n">member2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>It has a few downsides, which I didn't yet get to fixing:
+* requires public access to value members, although you can always declare the operators as friends.</p>
+
+<p>It also has some nice properties:
+* having defined the above, container types like std::vector<my_type> are automagically supported.</p>
+
+<p>Of course this is still work in progress and I expect it to slightly change, maybe move away from
+msgpackv5 specification a bit - it seems to have some illogical cases.</p>
+
+<p>The current implementation is available as part of support library <a href="https://github.com/berkus/libsupport">here</a>.
+Separately <a href="https://github.com/berkus/libsupport/blob/develop/include/flurry.h">header</a> and <a href="https://github.com/berkus/libsupport/blob/develop/lib/flurry.cpp">implementation</a> files. <a href="https://github.com/berkus/libsupport/blob/develop/tests/test_flurry.cpp">Unit test</a> shows how to use it. And the <a href="https://github.com/berkus/libsupport/blob/develop/doc/flurry_serialization.txt">spec</a> will have the latest details about the data format.</p>
+
+
+<a href="/">Back to start</a>
+
+      </section>
+      <div class="wrap_disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'exocortex';
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+    
+    <footer>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>.</p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-36158006-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+    <script type="text/javascript">
+      var disqus_shortname = 'exocortex';
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+  </body>
+</html>

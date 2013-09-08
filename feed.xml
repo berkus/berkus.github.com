@@ -7,6 +7,67 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Flurry</title>
+				<description>&lt;p&gt;To continue work on the structured streams transport I decided to get rid of the XDR data
+representation, as well as slightly awkward boost.serialization library.&lt;/p&gt;
+
+&lt;p&gt;Boost.serialization is very nice and robust, but it has some quirks, like not being able to
+save things by value.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;n&quot;&gt;ar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hell yeah&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Cannot do this&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I encountered a very nice library called &lt;a href=&quot;https://github.com/berkus/msgpack&quot;&gt;msgpack&lt;/a&gt;. It provided
+quite efficient packing of small integers and looked reasonably simple.
+But the C++ wrappers it provided around the C core were extremely horrendous - their main purpose
+seems to be for RPC mechanisms where you define and transfer tuples of given types.
+Making it serialize a bunch of simple fields and then load them back seemed extra hard.&lt;/p&gt;
+
+&lt;p&gt;The library seems to be in transition to &lt;a href=&quot;https://gist.github.com/frsyuki/5432559&quot;&gt;msgpackv5&lt;/a&gt;
+but itself doesn&#39;t support all of the features outlined there.&lt;/p&gt;
+
+&lt;p&gt;I decided to make a simple and very dumb serializer to msgpackv5 format from the ground up.
+The default implementation supports several types from ints and strings to boost::optional&lt;T&gt; and
+some STL containers.&lt;/p&gt;
+
+&lt;p&gt;If your type consists of a series of supported types, it&#39;s easy to serialize it as well, just define
+two shift operators similar to how iostreams work.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;kr&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flurry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iarchive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;operator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flurry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iarchive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flurry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oarchive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;operator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flurry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oarchive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_type&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It has a few downsides, which I didn&#39;t yet get to fixing:
+* requires public access to value members, although you can always declare the operators as friends.&lt;/p&gt;
+
+&lt;p&gt;It also has some nice properties:
+* having defined the above, container types like std::vector&lt;my_type&gt; are automagically supported.&lt;/p&gt;
+
+&lt;p&gt;Of course this is still work in progress and I expect it to slightly change, maybe move away from
+msgpackv5 specification a bit - it seems to have some illogical cases.&lt;/p&gt;
+
+&lt;p&gt;The current implementation is available as part of support library &lt;a href=&quot;https://github.com/berkus/libsupport&quot;&gt;here&lt;/a&gt;.
+Separately &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/include/flurry.h&quot;&gt;header&lt;/a&gt; and &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/lib/flurry.cpp&quot;&gt;implementation&lt;/a&gt; files. &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/tests/test_flurry.cpp&quot;&gt;Unit test&lt;/a&gt; shows how to use it. And the &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/doc/flurry_serialization.txt&quot;&gt;spec&lt;/a&gt; will have the latest details about the data format.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 08 Sep 2013 00:00:00 +0300</pubDate>
+				<link>/post/2013/09/08/flurry</link>
+				<guid isPermaLink="true">/post/2013/09/08/flurry</guid>
+			</item>
+		
+			<item>
 				<title>Compiling LLVM trunk</title>
 				<description>&lt;p&gt;Just a very simple thing to try and build Clang with polly, LLVM, libcxx, lldb and lld from trunk. Isn&#39;t it?&lt;/p&gt;
 
@@ -433,17 +494,6 @@ __sjljeh_setjmp and __sjljeh_longjmp which do just what I need.&lt;/p&gt;
 				<pubDate>Sun, 08 Apr 2012 00:00:00 +0300</pubDate>
 				<link>/post/2012/04/08/cs373-finished</link>
 				<guid isPermaLink="true">/post/2012/04/08/cs373-finished</guid>
-			</item>
-		
-			<item>
-				<title>Bret Victor's Kill Math</title>
-				<description>&lt;p&gt;&lt;a href=&quot;http://worrydream.com/KillMath/&quot;&gt;Bret Victors Kill Math&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;How to stop worrying and love your visualization tools.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 02 Apr 2012 00:00:00 +0300</pubDate>
-				<link>/post/2012/04/02/bret-victors-kill-math</link>
-				<guid isPermaLink="true">/post/2012/04/02/bret-victors-kill-math</guid>
 			</item>
 		
 	</channel>
