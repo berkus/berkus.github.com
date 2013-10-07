@@ -7,6 +7,56 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>libSSU progress</title>
+				<description>&lt;p&gt;&lt;a href=&quot;https://github.com/berkus/libssu&quot;&gt;Structured Streams Unleashed&lt;/a&gt; library is getting in shape.
+With C++11 and Boost it&#39;s relatively simple to write even without the tremendous help of Qt.
+Although I had to write some helpers which are factored into a separate library - grab
+&lt;a href=&quot;https://github.com/berkus/libsupport&quot;&gt;libsupport&lt;/a&gt; if you want - some nice things there are
+byte_array, settings_provider, binary literals, hash_combine, make_unique, contains() predicate,
+base32 encoder-decoder and opaque big/little endian integer types.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;kt&quot;&gt;big_uint32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xabbadead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// magic will store data in network byte order in memory,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// and convert it as necessary for operations. You don&amp;#39;t&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// have to think about it at all.&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bin_literal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1010101&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;00001&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10100&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;masked&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bin_literal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;01110&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;byte_array&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&amp;#39;h&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&amp;#39;l&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&amp;#39;l&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&amp;#39;o&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hell&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// And so on...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;But enough about support libs, one of the major milestones is the ability to set up an encrypted
+connection between two endpoints. This works reliably in the simulator, which is another good
+feature. In the simulator you can define link properties, such as packet propagation delay, loss
+rate between 0.0 and 1.0, set up host network of arbitrary complexity. It currently requires manual
+set up of every link between the hosts, but I hope to simplify that a bit using some network
+configuration helpers.&lt;/p&gt;
+
+&lt;p&gt;With an encrypted connecting set up, streams are firing off events on receive or substream activation.
+There&#39;s still a lot to do, for example proper MTU configuration, congestion control, reliable
+delivery timeouts and lots of small fixes, but I plan now to switch to porting the userspace
+applications to use ssu streams and then flesh out the issues with a bunch of unit and integration
+tests.&lt;/p&gt;
+
+&lt;p&gt;First target is opus-streaming app from mettanode. It&#39;s a simple audio-chat application and switching
+it to ssu streams serves two purposes - I want to see how well ssu can handle real-time traffic and
+part two, I haven&#39;t polished unreliable datagram sending too much, and this is what opus-stream uses,
+so it will serve as a field test.&lt;/p&gt;
+</description>
+				<pubDate>Mon, 07 Oct 2013 00:00:00 +0300</pubDate>
+				<link>/post/2013/10/07/libssu</link>
+				<guid isPermaLink="true">/post/2013/10/07/libssu</guid>
+			</item>
+		
+			<item>
 				<title>Flurry</title>
 				<description>&lt;p&gt;To continue work on the structured streams transport I decided to get rid of the XDR data
 representation, as well as slightly awkward boost.serialization library.&lt;/p&gt;
@@ -483,17 +533,6 @@ __sjljeh_setjmp and __sjljeh_longjmp which do just what I need.&lt;/p&gt;
 				<pubDate>Sun, 08 Apr 2012 00:00:00 +0300</pubDate>
 				<link>/post/2012/04/08/sjlj-and-exception-handling</link>
 				<guid isPermaLink="true">/post/2012/04/08/sjlj-and-exception-handling</guid>
-			</item>
-		
-			<item>
-				<title>CS373 finished</title>
-				<description>&lt;p&gt;I&#39;m done with CS373, having implemented some quite nice algorithms that can be used to real-life robot navigation and after a surprisingly well done final exam (my hopes weren&#39;t so high after the AI class, so I&#39;m positively surprised).&lt;/p&gt;
-
-&lt;p&gt;It was so fun I signed up for two more classes starting April 16. - Applied Cryptography and Design of Computer Programs. Can&#39;t wait to have moar edjuukation.&lt;/p&gt;
-</description>
-				<pubDate>Sun, 08 Apr 2012 00:00:00 +0300</pubDate>
-				<link>/post/2012/04/08/cs373-finished</link>
-				<guid isPermaLink="true">/post/2012/04/08/cs373-finished</guid>
 			</item>
 		
 	</channel>
