@@ -184,12 +184,7 @@ section {
   padding: 15px 20px;
   font-size: 14pt;
   border-top: 1px solid #fff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 1000, color-stop(0%, #fafafa), color-stop(100%, #dedede));
-  background: -webkit-linear-gradient(#fafafa, #dedede 1000px);
-  background: -moz-linear-gradient(#fafafa, #dedede 1000px);
-  background: -o-linear-gradient(#fafafa, #dedede 1000px);
-  background: -ms-linear-gradient(#fafafa, #dedede 1000px);
-  background: linear-gradient(#fafafa, #dedede 1000px);
+  background: #fafafa;
   -webkit-border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
   -ms-border-radius: 0 0 8px 8px;
