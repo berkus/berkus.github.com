@@ -182,7 +182,7 @@ header ul a strong {
 
 section {
   padding: 15px 20px;
-  font-size: 15pt;
+  font-size: 14pt;
   border-top: 1px solid #fff;
   background: -webkit-gradient(linear, 50% 0%, 50% 1000, color-stop(0%, #fafafa), color-stop(100%, #dedede));
   background: -webkit-linear-gradient(#fafafa, #dedede 1000px);
@@ -241,7 +241,7 @@ img {
 code, pre {
   font-family: "Source Code Pro", Lucida Console, Terminal, monospace;
   color: #333;
-  font-size: 14px;
+  font-size: 14pt;
   overflow-x: auto;
 }
 
