@@ -181,7 +181,7 @@ header ul a strong {
 
 section {
   padding: 15px 20px;
-  font-size: 18px;
+  font-size: 18pt;
   border-top: 1px solid #fff;
   background: -webkit-gradient(linear, 50% 0%, 50% 1000, color-stop(0%, #fafafa), color-stop(100%, #dedede));
   background: -webkit-linear-gradient(#fafafa, #dedede 1000px);
