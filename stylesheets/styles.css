@@ -88,7 +88,7 @@ header p {
   margin: 0;
   color: #61778B;
   width: 300px;
-  font-size: 13px;
+  font-size: 14px;
 }
 header p.view {
   display: none;
@@ -162,7 +162,7 @@ header ul li + li + li {
 }
 header ul a {
   line-height: 1;
-  font-size: 11px;
+  font-size: 12px;
   color: #fff;
   color: rgba(255, 255, 255, 0.8);
   display: block;
@@ -181,14 +181,14 @@ header ul a strong {
 
 section {
   padding: 15px 20px;
-  font-size: 15px;
+  font-size: 18px;
   border-top: 1px solid #fff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 700, color-stop(0%, #fafafa), color-stop(100%, #dedede));
-  background: -webkit-linear-gradient(#fafafa, #dedede 700px);
-  background: -moz-linear-gradient(#fafafa, #dedede 700px);
-  background: -o-linear-gradient(#fafafa, #dedede 700px);
-  background: -ms-linear-gradient(#fafafa, #dedede 700px);
-  background: linear-gradient(#fafafa, #dedede 700px);
+  background: -webkit-gradient(linear, 50% 0%, 50% 1000, color-stop(0%, #fafafa), color-stop(100%, #dedede));
+  background: -webkit-linear-gradient(#fafafa, #dedede 1000px);
+  background: -moz-linear-gradient(#fafafa, #dedede 1000px);
+  background: -o-linear-gradient(#fafafa, #dedede 1000px);
+  background: -ms-linear-gradient(#fafafa, #dedede 1000px);
+  background: linear-gradient(#fafafa, #dedede 1000px);
   -webkit-border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
   -ms-border-radius: 0 0 8px 8px;
@@ -213,7 +213,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 30px;
 }
 
 h2 {
@@ -238,9 +238,9 @@ img {
 }
 
 code, pre {
-  font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  font-family: Source Code Pro, Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   color: #333;
-  font-size: 12px;
+  font-size: 14px;
   overflow-x: auto;
 }
 
@@ -279,7 +279,7 @@ th {
 }
 
 small {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 hr {
@@ -310,7 +310,7 @@ footer p + p {
 /* Disqus post comments count */
 .dsq_count
 {
-  font-size: 9px;
+  font-size: 10px;
   color: #aaa;
 }
 
