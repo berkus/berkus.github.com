@@ -7,6 +7,19 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>How this page came to existence</title>
+				<description>&lt;h3&gt;How this page came to existence&lt;/h3&gt;
+
+&lt;p&gt;A recent trip into the git land left me wondering how fast things change. About a year ago I was a major proponent of bzr and its much better repository model in my mind. Fast forward to this day and I find git elegant, slick, fast (especially fast - my bzr repository started to crawl after about 1900 commits).&lt;/p&gt;
+
+&lt;p&gt;Then a miraculous thing like github is something you don&#39;t give up lightly. Launchpad is an over engineered piece of crud - it might suit Canonical guys to work on a large Ubuntu project, but for anything smaller it&#39;s just not suitable. GitHub on the other hand has all the bells and whistles in a nice slim package which doesn&#39;t get in the way - something I want to have everywhere.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 16 Oct 2013 00:00:00 +0300</pubDate>
+				<link>/post/2013/10/16/how-this-page-came</link>
+				<guid isPermaLink="true">/post/2013/10/16/how-this-page-came</guid>
+			</item>
+		
+			<item>
 				<title>libSSU progress</title>
 				<description>&lt;p&gt;&lt;a href=&quot;https://github.com/berkus/libssu&quot;&gt;Structured Streams Unleashed&lt;/a&gt; library is getting in shape.
 With C++11 and Boost it&#39;s relatively simple to write even without the tremendous help of Qt.
@@ -521,18 +534,6 @@ For now I just turned UPnP off in the released code and will experiment with it 
 				<pubDate>Fri, 11 May 2012 00:00:00 +0300</pubDate>
 				<link>/post/2012/05/11/sending-network-packets</link>
 				<guid isPermaLink="true">/post/2012/05/11/sending-network-packets</guid>
-			</item>
-		
-			<item>
-				<title>sjlj and exception handling</title>
-				<description>&lt;p&gt;Of course, the clang&#39;s implementation of setjmp is very generic and uses quite an abstraction of program state, which makes it hardly suitable for the ad-hoc local exception support I&#39;m using. Since my requirements for setjmp were quite simple (just give me back my damn registers and stack frame), I went and implemented a very custom-tailored versions
-__sjljeh_setjmp and __sjljeh_longjmp which do just what I need.&lt;/p&gt;
-
-&lt;p&gt;With &lt;a href=&quot;https://github.com/berkus/metta/blob/master/src/runtime/setjmp.s&quot;&gt;that stuff&lt;/a&gt; out of the way, my entire boot sequence now works and I can finally fiddle with more interesting stuff. Type system and introspection, here we go.&lt;/p&gt;
-</description>
-				<pubDate>Sun, 08 Apr 2012 00:00:00 +0300</pubDate>
-				<link>/post/2012/04/08/sjlj-and-exception-handling</link>
-				<guid isPermaLink="true">/post/2012/04/08/sjlj-and-exception-handling</guid>
 			</item>
 		
 	</channel>
