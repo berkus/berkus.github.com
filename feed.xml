@@ -7,6 +7,17 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Derived intelligence</title>
+				<description>&lt;blockquote&gt;&lt;p&gt;Our lives are increasingly mediated by, filtered through, and experienced via technology. A plethora of mechanisms capture, store, examine, manipulate, derive intelligence from, and share our information. This happens either with our knowledge, consent, and intent or without.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Aral Balkan&lt;/strong&gt; &lt;a href=&quot;http://aralbalkan.com/notes/indie-data/&quot;&gt;site&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Fri, 13 Dec 2013 00:00:00 +0200</pubDate>
+				<link>/post/2013/12/13/derived-intelligence</link>
+				<guid isPermaLink="true">/post/2013/12/13/derived-intelligence</guid>
+			</item>
+		
+			<item>
 				<title>How this page came to existence</title>
 				<description>&lt;h3&gt;How this page came to existence&lt;/h3&gt;
 
@@ -504,36 +515,6 @@ For now I just turned UPnP off in the released code and will experiment with it 
 				<pubDate>Mon, 14 May 2012 00:00:00 +0300</pubDate>
 				<link>/post/2012/05/14/new-classes</link>
 				<guid isPermaLink="true">/post/2012/05/14/new-classes</guid>
-			</item>
-		
-			<item>
-				<title>Sending network packets</title>
-				<description>&lt;p&gt;A little sidetrack into the world of PCI probing and NE2000 network card emulation.&lt;/p&gt;
-
-&lt;p&gt;Wanted to have a taste of sending and receiving network packets inside my little OS, so I went and implemented PCI scanning (extremely simple) and NE2000 card driver (fairly simple too, their doc is quite good although misses some crucial points).&lt;/p&gt;
-
-&lt;p&gt;So, after some fiddling I was able to send a packet and receive it through the bochs virtual network card. I&#39;ve then connected bochs to the host network card and stared at network packets for a while. Cool stuff.&lt;/p&gt;
-
-&lt;p&gt;Here&#39;s the screen dump of the sent and then received broadcast packet.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;IRQ11 enabled.&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Finished initializing NE2000 with MAC b0:c4:20:00:00:00.&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Received irq: 0x0000000b&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Packet transmitted.&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Packet received.&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Received packet with status 33 of length 68, next packet at 82&lt;/span&gt;
-
-&lt;span class=&quot;go&quot;&gt;0x004f0064  ff ff ff ff ff ff 28 cf  da 00 99 f5 00 10 48 65  ......(.......He&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;0x004f0074  6c 6c 6f 20 6e 65 74 20  77 6f 72 6c 64 21 00 00  llo net world!..&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;0x004f0094  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
-</description>
-				<pubDate>Fri, 11 May 2012 00:00:00 +0300</pubDate>
-				<link>/post/2012/05/11/sending-network-packets</link>
-				<guid isPermaLink="true">/post/2012/05/11/sending-network-packets</guid>
 			</item>
 		
 	</channel>
