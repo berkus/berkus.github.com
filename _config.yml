@@ -1,5 +1,5 @@
 pygments: true
 future: true
-permalink: /post/:year/:month/:day/:title
+permalink: /post/:year/:month/:day/:title/
 markdown: rdiscount
 
