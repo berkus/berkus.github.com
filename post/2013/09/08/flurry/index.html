@@ -64,11 +64,19 @@ two shift operators similar to how iostreams work.</p>
 </code></pre></div>
 
 
-<p>It has a few downsides, which I didn't yet get to fixing:
-* requires public access to value members, although you can always declare the operators as friends.</p>
+<p>It has a few downsides, which I didn't yet get to fixing:</p>
 
-<p>It also has some nice properties:
-* having defined the above, container types like <code>std::vector&lt;my_type&gt;</code> are automagically supported.</p>
+<ul>
+<li>requires public access to value members, although you can always declare the operators as friends.</li>
+</ul>
+
+
+<p>It also has some nice properties:</p>
+
+<ul>
+<li>having defined the above, container types like <code>std::vector&lt;my_type&gt;</code> are automagically supported.</li>
+</ul>
+
 
 <p>Of course this is still work in progress and I expect it to slightly change, maybe move away from
 msgpackv5 specification a bit - it seems to have some illogical cases.</p>

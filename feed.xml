@@ -124,11 +124,19 @@ two shift operators similar to how iostreams work.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;It has a few downsides, which I didn&#39;t yet get to fixing:
-* requires public access to value members, although you can always declare the operators as friends.&lt;/p&gt;
+&lt;p&gt;It has a few downsides, which I didn&#39;t yet get to fixing:&lt;/p&gt;
 
-&lt;p&gt;It also has some nice properties:
-* having defined the above, container types like &lt;code&gt;std::vector&amp;lt;my_type&amp;gt;&lt;/code&gt; are automagically supported.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;requires public access to value members, although you can always declare the operators as friends.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;It also has some nice properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;having defined the above, container types like &lt;code&gt;std::vector&amp;lt;my_type&amp;gt;&lt;/code&gt; are automagically supported.&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;p&gt;Of course this is still work in progress and I expect it to slightly change, maybe move away from
 msgpackv5 specification a bit - it seems to have some illogical cases.&lt;/p&gt;
