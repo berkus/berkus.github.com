@@ -35,7 +35,7 @@
 				<description>&lt;p&gt;&lt;a href=&quot;https://github.com/berkus/libssu&quot;&gt;Structured Streams Unleashed&lt;/a&gt; library is getting in shape.
 With C++11 and Boost it&#39;s relatively simple to write even without the tremendous help of Qt.
 Although I had to write some helpers which are factored into a separate library - grab
-&lt;a href=&quot;https://github.com/berkus/libsupport&quot;&gt;libsupport&lt;/a&gt; if you want - some nice things there are
+&lt;a href=&quot;https://github.com/berkus/libarsenal&quot;&gt;arsenal&lt;/a&gt; if you want - some nice things there are
 byte_array, settings_provider, binary literals, hash_combine, make_unique, contains() predicate,
 base32 encoder-decoder and opaque big/little endian integer types.&lt;/p&gt;
 
@@ -133,8 +133,8 @@ two shift operators similar to how iostreams work.&lt;/p&gt;
 &lt;p&gt;Of course this is still work in progress and I expect it to slightly change, maybe move away from
 msgpackv5 specification a bit - it seems to have some illogical cases.&lt;/p&gt;
 
-&lt;p&gt;The current implementation is available as part of support library &lt;a href=&quot;https://github.com/berkus/libsupport&quot;&gt;here&lt;/a&gt;.
-Separately &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/include/flurry.h&quot;&gt;header&lt;/a&gt; and &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/lib/flurry.cpp&quot;&gt;implementation&lt;/a&gt; files. &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/tests/test_flurry.cpp&quot;&gt;Unit test&lt;/a&gt; shows how to use it. And the &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/doc/flurry_serialization.txt&quot;&gt;spec&lt;/a&gt; will have the latest details about the data format.&lt;/p&gt;
+&lt;p&gt;The current implementation is available as part of arsenal library &lt;a href=&quot;https://github.com/berkus/libarsenal&quot;&gt;here&lt;/a&gt;.
+Separately &lt;a href=&quot;https://github.com/berkus/libarsenal/blob/develop/include/arsenal/flurry.h&quot;&gt;header&lt;/a&gt; and &lt;a href=&quot;https://github.com/berkus/libarsenal/blob/develop/lib/flurry.cpp&quot;&gt;implementation&lt;/a&gt; files. &lt;a href=&quot;https://github.com/berkus/libarsenal/blob/develop/tests/test_flurry.cpp&quot;&gt;Unit test&lt;/a&gt; shows how to use it. And the &lt;a href=&quot;https://github.com/berkus/libarsenal/blob/develop/doc/flurry_serialization.txt&quot;&gt;spec&lt;/a&gt; will have the latest details about the data format.&lt;/p&gt;
 </description>
 				<pubDate>Sun, 08 Sep 2013 00:00:00 +0300</pubDate>
 				<link>/post/2013/09/08/flurry/</link>
@@ -241,9 +241,11 @@ Separately &lt;a href=&quot;https://github.com/berkus/libsupport/blob/develop/in
 				<title>Libssu or where to go from SST?</title>
 				<description>&lt;p&gt;In the mean time, I&#39;m slowly rewriting Bryan Ford&#39;s SST (Structured Streams Transport) library, using modern C++ and boost.asio, in the hopes that it will be easier to port to Metta. I called it libssu (Structured Streams Unleashed).&lt;/p&gt;
 
-&lt;p&gt;As this work progresses I also plan to enter the description of this protocol into an RFC document, so there will be some reference point for alternative implementations. Current progress is available in &lt;a href=&quot;https://github.com/berkus/mettanode/tree/feature/ssu&quot;&gt;features/ssu&lt;/a&gt; branch on github. When it is functionally on par with existing sst, it will be merged to develop and further mettanode development will be built around this implementation.&lt;/p&gt;
+&lt;p&gt;As this work progresses I also plan to enter the description of this protocol into an RFC document, so there will be some reference point for alternative implementations. Current progress is available in &lt;a href=&quot;https://github.com/berkus/libssu&quot;&gt;libssu&lt;/a&gt; on github.&lt;/p&gt;
 
 &lt;p&gt;I&#39;d like to take the chance to thank Aldrin D&#39;Souza for his excellent &lt;a href=&quot;http://aldrin.co/crypto-primitives.html&quot;&gt;C++ wrapper around openssl crypto functions&lt;/a&gt;. He kindly licensed it for free use under BSD License.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; Jan 2014 repository moved.&lt;/p&gt;
 </description>
 				<pubDate>Wed, 24 Apr 2013 00:00:00 +0300</pubDate>
 				<link>/post/2013/04/24/libssu/</link>
@@ -373,6 +375,8 @@ once you open the search window again.&lt;/p&gt;
 resolution unusable, unless I force it to use TCP. Not yet sure if this is result of my incorrect use of it
 or this is by design in Thomson. Skype and uTorrent seem to punch holes just fine, so it should be me.
 For now I just turned UPnP off in the released code and will experiment with it more.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; As of Jan 2014 NAT access is working properly.&lt;/p&gt;
 </description>
 				<pubDate>Sun, 09 Dec 2012 00:00:00 +0200</pubDate>
 				<link>/post/2012/12/09/nat-update/</link>
@@ -386,6 +390,8 @@ For now I just turned UPnP off in the released code and will experiment with it 
 &lt;p&gt;I tried using UPnP to open some more ports, but it doesn&#39;t change the fact that advertised endpoints are still invalid. Now the upcoming change is to record external IP and port of the instance as reported by the router&#39;s UPnP protocol into yet another endpoint and forward that to the regserver. Another nice addition would be to enable Bonjour discovery of the nodes on the local network, which hopefully would already be connected to the regserver and can forward our endpoint information.&lt;/p&gt;
 
 &lt;p&gt;As usual, on the New Years Eve there&#39;s a lot of different projects coming up simultaneously and grinding any progress to a halt. Watch the commits on github.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;update:&lt;/strong&gt; As of Jan 2014 NAT access is working properly.&lt;/p&gt;
 </description>
 				<pubDate>Sat, 01 Dec 2012 00:00:00 +0200</pubDate>
 				<link>/post/2012/12/01/nat-woes/</link>
