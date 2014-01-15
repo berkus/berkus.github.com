@@ -1,7 +1,7 @@
---- 
+---
 title: NAT update
 layout: post
-tags: 
+tags:
 - metta
 - UPnP
 - NAT
@@ -17,3 +17,5 @@ UPnP has interesting effect on Thomson TG784 - all UDP DNS traffic ceases on oth
 resolution unusable, unless I force it to use TCP. Not yet sure if this is result of my incorrect use of it
 or this is by design in Thomson. Skype and uTorrent seem to punch holes just fine, so it should be me.
 For now I just turned UPnP off in the released code and will experiment with it more.
+
+**update:** As of Jan 2014 NAT access is working properly.
