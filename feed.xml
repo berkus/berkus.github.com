@@ -7,6 +7,17 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Anti-Mac Interface quote</title>
+				<description>&lt;blockquote&gt;&lt;p&gt;A computer environment in which both humans and computer-based agents have active roles implies a mixed locus of control. The user&#39;s environment will no longer be completely stable, and the user will no longer be totally in control. For general sanity, users still need to determine the balance of control in the different parts of their environment, they need the means to find out what their agents have been up to, and they need mechanisms for navigating in the wider networked world;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Anti-Mac Interface&lt;/strong&gt; &lt;a href=&quot;http://www.nngroup.com/articles/anti-mac-interface/&quot;&gt;site&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Tue, 21 Jan 2014 00:00:00 +0200</pubDate>
+				<link>/post/2014/01/21/anti-mac/</link>
+				<guid isPermaLink="true">/post/2014/01/21/anti-mac/</guid>
+			</item>
+		
+			<item>
 				<title>Derived intelligence</title>
 				<description>&lt;blockquote&gt;&lt;p&gt;Our lives are increasingly mediated by, filtered through, and experienced via technology. A plethora of mechanisms capture, store, examine, manipulate, derive intelligence from, and share our information. This happens either with our knowledge, consent, and intent or without.&lt;/p&gt;&lt;/blockquote&gt;
 
@@ -512,23 +523,6 @@ For now I just turned UPnP off in the released code and will experiment with it 
 				<pubDate>Sun, 03 Jun 2012 00:00:00 +0300</pubDate>
 				<link>/post/2012/06/03/museum-of-endangered-sounds/</link>
 				<guid isPermaLink="true">/post/2012/06/03/museum-of-endangered-sounds/</guid>
-			</item>
-		
-			<item>
-				<title>New classes</title>
-				<description>&lt;p&gt;I took three more classes (actually, I took a lot more this time, but they all fell off, still hope to at least watch the videos).&lt;/p&gt;
-
-&lt;p&gt;So here&#39;s the breakdown:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.udacity.com/course/cs212&quot;&gt;Udacity CS212&lt;/a&gt; - Design of Computer Programs - a bit boring for me, I usually do all the same stuff as my daily job. Might be interesting to people new in the craft.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.udacity.com/course/cs387&quot;&gt;Udacity CS387&lt;/a&gt; - Applied Cryptography - very interesting one, enjoying the theory and application equally.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://coursera.org/compilers&quot;&gt;Coursera Compilers&lt;/a&gt; - Compilers (ha!) - extremely interesting, very practical and exciting course. I&#39;m kinda skipping the quizzes - they are too theoretical and not very interesting, but spend most of my time on actually implementing the lexer and parser and in the future hopefully some code generation and optimizations as well. So far, my favourite course.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 14 May 2012 00:00:00 +0300</pubDate>
-				<link>/post/2012/05/14/new-classes/</link>
-				<guid isPermaLink="true">/post/2012/05/14/new-classes/</guid>
 			</item>
 		
 	</channel>
