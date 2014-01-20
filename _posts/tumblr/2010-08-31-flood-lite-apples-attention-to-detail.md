@@ -5,7 +5,7 @@ tags:
 - apple
 - design
 ---
-[Flood Lite: Apples Attention to Detail](http://floodlite.tumblr.com/post/1011047822/apples-attention-to- detail)
+[Flood Lite: Apples Attention to Detail](http://floodlite.tumblr.com/post/1011047822/apples-attention-to-detail)
 
 > ![](http://media.tumblr.com/tumblr_l7qcglAIVa1qz7g5t.jpg)
 >
