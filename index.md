@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+### Development focus
+
+[Look here for the site with real updates](http://atta-metta.net/about).
+
 ### List of all posts by date
 
 <div class="link">
