@@ -1,2 +1,2 @@
-Teh blog. Read at [exocortex.madfire.net](http://exocortex.madfire.net).
+Teh blog. Read at [berkus.github.io](http://berkus.github.io).
 
